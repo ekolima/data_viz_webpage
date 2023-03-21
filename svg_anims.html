@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- <link rel="stylesheet" href="style.css" /> -->
+  <html lang="en">
+  <head>
+    <title>Eirini Kolimatsi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand" href="home.html">Eirini Kolimatsi</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About Me<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="dataviz.html">Data Visualization</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="svg_anims.html">SVG Animations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="credits.html">Credits</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+    <body>
+      <div class="container">
+        <div class="row">
+        <div class="col">
+        <svg viewBox="0 0 200 100" align="center">
+          <circle id="orange-circle" r="15" cx="95" cy="35" fill="orange"></circle>
+          <rect id="blue-rectangle" width="25" height="25" x="70.5" y="55" fill="#0099cc"></rect>
+          <rect id="green-rectangle" width="30" height="30" x="115" y="37" fill="green"></rect>
+          <animate
+            xlink:href="#orange-circle"
+            attributeName="fill"
+            ttributeType="XML"
+            from="25"
+            to="225"
+            dur="5s"
+            values="#D88C9A;#F2D0A9;#99C1B9;#8E7DBE"
+            begin="click"
+            fill="freeze"
+            id="circ-anim">
+          </animate>
+          <animate
+            xlink:href="#blue-rectangle"
+            attributeName="fill"
+            attributeType="XML"
+            from="25"
+            to="212.5"
+            dur="5s"
+            values="#FF6B6C;#FFC145;#FFFFFB;#5B5F97"
+            begin="circ-anim.begin + 1s"
+            fill="freeze"
+            id="rect-anim">
+          </animate>
+          <animate
+            xlink:href="#green-rectangle"
+            attributeName="fill"
+            attributeType="XML"
+            from="212.5"
+            to="25"
+            dur="5s"
+            values="#3F2B53;#774C60;#B75D69;#EACDC2"
+            begin="circ-anim.begin + 1s"
+            fill="freeze"
+            id="rect-anim">
+          </animate>
+
+        </svg>
+        <p> This SVG animation changes colour by clicking to the circle</p>
+      </div>
+      <div class="col">
+        <svg viewBox="0 0 200 100" align="center" class="svg-animation" id="svg-animation">
+              <path id="wave" fill="none" stroke="red" class="path1"
+              d="M 10,50 Q 25,25 40,50 t 30,0 30,0 30,0"/>
+              <path id="fall_wave" fill="none" stroke="green" class="path2"
+              d="M 20,5 Q 25,25 40,50 t 30,0 30,0 30,0"/>
+                <circle id="point-1" class="point-1" fill="magenta" cx="0" cy="0" r="3" fill="black" />
+                <circle id="point-2" class="point-2" fill="purple" cx="0" cy="0" r="3" fill="black" />
+                <circle id="point-3" class="point-3" fill="orange" cx="0" cy="0" r="3" fill="black" />
+              <animateMotion xlink:href="#point-1" dur="3s" begin="0s" repeatCount="indefinite" rotate="auto" >
+                  <mpath xlink:href="#wave" />
+              </animateMotion>
+              <animateMotion xlink:href="#point-2" dur="4s" begin="0s" repeatCount="indefinite" rotate="auto" >
+                  <mpath xlink:href="#fall_wave" />
+              </animateMotion>
+              <animateMotion xlink:href="#point-3" dur="5s" begin="1s" repeatCount="indefinite" rotate="auto" >
+                  <mpath xlink:href="#fall_wave" />
+              </animateMotion>
+
+          </svg>
+          <p> This SVG animation moves indefinitely.</p>
+        </div>
+        </div>
+      </div>
+    </body>
+</html>
